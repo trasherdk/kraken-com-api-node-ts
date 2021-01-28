@@ -1,6 +1,6 @@
 {
   "name": "kraken-com-api-node-ts",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "kraken.com API client library for NodeJS using typescript",
   "keywords": [
     "kraken",
@@ -28,7 +28,7 @@
     "type": "git",
     "url": "https://github.com/gbili/kraken-com-api-node-ts"
   },
-  "main": "kraken.js",
+  "main": "./build/kraken.js",
   "engines": {
     "node": ">=8"
   },
