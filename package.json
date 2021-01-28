@@ -1,6 +1,6 @@
 {
   "name": "kraken-com-api-node-ts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "kraken.com API client library for NodeJS using typescript",
   "keywords": [
     "kraken",
@@ -16,9 +16,13 @@
   "license": "MIT",
   "dependencies": {
     "crypto": "1.0.1",
+    "@types/dotenv": "8.2.0",
     "dotenv": "8.2.0",
+    "@types/got": "9.6.11",
     "got": "11.8.1",
-    "qs": "6.9.6"
+    "@types/qs": "6.9.5",
+    "qs": "6.9.6",
+    "@types/node": "14.14.22"
   },
   "repository": {
     "type": "git",
@@ -33,10 +37,5 @@
     "email": "mail@guillermo.at"
   },
   "readmeFilename": "README.md",
-  "devDependencies": {
-    "@types/dotenv": "8.2.0",
-    "@types/got": "9.6.11",
-    "@types/qs": "6.9.5",
-    "@types/node": "14.14.22"
-  }
+  "devDependencies": {}
 }
