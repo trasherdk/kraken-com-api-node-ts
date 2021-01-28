@@ -1,25 +1,8 @@
 # NodeJS Kraken.com API Typescript
 
-```text
- header:
-   API-Key = API key
-   API-Sign = Message signature using HMAC-SHA512 of (URI path + SHA256(nonce + POST data)) and base64 decoded secret API key
-   User-Agent = gbili-kraken/1.0 (NodeJS; Typescript +https://github.com/gbili/nodejs-kraken-com-ts)
- timeout:
-    The client can send a request with a timeout (in seconds), that will start a countdown timer
-    which will cancel *all* client orders when the timer expires
- body:
-   nonce = always increasing unsigned 64 bit integer
-   otp = two-factor password (if two-factor enabled, otherwise not required)
- response:
-   error = array of error messages in the format of:
-     <char-severity code (E|W)><string-error category>:<string-error type>[:<string-extra info>]
-   result = result of API call (may not be present if errors occur)
-```
-
 NodeJS Client Library for the Kraken (kraken.com) API
 
-This is an asynchronous node js client for the kraken.com API. It exposes all the API methods found here: https://www.kraken.com/help/api through the `api` method.
+This is an asynchronous node javascript/typescript client for the kraken.com API. It exposes all the API methods found [here](https://www.kraken.com/help/api) through the `api` method.
 
 ## Installation
 
@@ -53,6 +36,25 @@ const api = getApi('345690');
   // Get Ticker Info
   console.log(await api('Ticker', { pair : 'XXBTZUSD' }));
 })();
+```
+
+## Request Structure
+
+```text
+ header:
+   API-Key = API key
+   API-Sign = Message signature using HMAC-SHA512 of (URI path + SHA256(nonce + POST data)) and base64 decoded secret API key
+   User-Agent = kraken-com-api-node-ts/1.0.0 (NodeJS, Typescript, Repo - https://github.com/gbili/kraken-com-api-node-ts)
+ timeout:
+    The client can send a request with a timeout (in seconds), that will start a countdown timer
+    which will cancel *all* client orders when the timer expires
+ body:
+   nonce = always increasing unsigned 64 bit integer
+   otp = two-factor password (if two-factor enabled, otherwise not required)
+ response:
+   error = array of error messages in the format of:
+     <char-severity code (E|W)><string-error category>:<string-error type>[:<string-extra info>]
+   result = result of API call (may not be present if errors occur)
 ```
 
 ## Credits
