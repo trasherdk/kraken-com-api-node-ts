@@ -1,61 +1,62 @@
-Node Kraken
-===========
+# NodeJS Kraken.com API Typescript
+
+```text
+ header:
+   API-Key = API key
+   API-Sign = Message signature using HMAC-SHA512 of (URI path + SHA256(nonce + POST data)) and base64 decoded secret API key
+   User-Agent = gbili-kraken/1.0 (NodeJS; Typescript +https://github.com/gbili/nodejs-kraken-com-ts)
+ timeout:
+    The client can send a request with a timeout (in seconds), that will start a countdown timer
+    which will cancel *all* client orders when the timer expires
+ body:
+   nonce = always increasing unsigned 64 bit integer
+   otp = two-factor password (if two-factor enabled, otherwise not required)
+ response:
+   error = array of error messages in the format of:
+     <char-severity code (E|W)><string-error category>:<string-error type>[:<string-extra info>]
+   result = result of API call (may not be present if errors occur)
+```
 
 NodeJS Client Library for the Kraken (kraken.com) API
 
-This is an asynchronous node js client for the kraken.com API. It exposes all the API methods found here: https://www.kraken.com/help/api through the ```api``` method.
+This is an asynchronous node js client for the kraken.com API. It exposes all the API methods found here: https://www.kraken.com/help/api through the `api` method.
 
-### Installation
+## Installation
 
 ```bash
-npm install kraken-api
+npm install kraken-com-api-node-ts
 ```
 
-### Example Usage:
+## Setup
+
+You need to save your keys in a `.env` file
+
+```env
+API_KEY=yourapikey
+API_SECRET=asecret
+OPT_KRAKEN=123456
+```
+
+## Example Usage
 
 ```javascript
-const key          = '...'; // API Key
-const secret       = '...'; // API Private Key
-const KrakenClient = require('kraken-api');
-const kraken       = new KrakenClient(key, secret);
+import getApi from 'kraken-com-api-node-ts';
+
+// without 2fa
+const api = getApi();
+// or with 2fa
+const api = getApi('345690');
 
 (async () => {
-	// Display user's balance
-	console.log(await kraken.api('Balance'));
-
-	// Get Ticker Info
-	console.log(await kraken.api('Ticker', { pair : 'XXBTZUSD' }));
+  // Display user's balance
+  console.log(await api('Balance'));
+  // Get Ticker Info
+  console.log(await api('Ticker', { pair : 'XXBTZUSD' }));
 })();
 ```
 
-### Updates:
+## Credits
 
-#### 1.0.1:
-- Update dependencies
-- Update required NodeJS version: [#42](https://github.com/nothingisdead/npm-kraken-api/pull/42)
-- Add GetWebSocketsToken private method: [#65](https://github.com/nothingisdead/npm-kraken-api/pull/65)
-- Update README: [#44](https://github.com/nothingisdead/npm-kraken-api/pull/44)
+I forked [Robert Myers](https://github.com/nothingisdead/kraken-api) kraken api client to produce the typescript version.
 
-#### 1.0.0:
-
-- All methods return a promise.
-- The second argument (parameters) can be omitted.
-- The third argument to the constructor can be an object (configuration) or a string (OTP), for backwards compatibility.
-
-#### 0.1.0:
-
-The callback passed to the ```api``` function conforms to the Node.js standard of
-
-```javascript
-function(error, data) {
-	// ...
-}
-```
-
-Thanks to @tehsenaus and @petermrg for pointing this out.
-
-### Credit:
-
-I used the example php implementation at https://github.com/payward/kraken-api-client and the python implementation at https://github.com/veox/python3-krakenex as references.
-
-BTC donation address: 12X8GyUpfYxEP7sh1QaU4ngWYpzXJByQn5
+Robert Myers BTC donation address: 12X8GyUpfYxEP7sh1QaU4ngWYpzXJByQn5

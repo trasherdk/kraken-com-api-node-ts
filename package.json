@@ -1,31 +1,42 @@
 {
-  "name": "kraken-api",
-  "version": "1.0.1",
-  "description": "kraken.com API client library for NodeJS",
+  "name": "kraken-com-api-node-ts",
+  "version": "1.0.0",
+  "description": "kraken.com API client library for NodeJS using typescript",
   "keywords": [
     "kraken",
+    "typescript",
     "api",
     "btc",
     "bitcoin"
   ],
-  "author": "Robert Myers (https://github.com/nothingisdead)",
-  "contributors": [],
+  "author": "Guillermo Pages (https://github.com/gbili)",
+  "contributors": [
+    "Robert Myers (https://github.com/nothingisdead)"
+  ],
   "license": "MIT",
   "dependencies": {
-    "got": "^11.1.4",
-    "qs": "^6.9.4"
+    "crypto": "1.0.1",
+    "dotenv": "8.2.0",
+    "got": "11.8.1",
+    "qs": "6.9.6"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nothingisdead/npm-kraken-api"
+    "url": "https://github.com/gbili/kraken-com-api-node-ts"
   },
   "main": "kraken.js",
   "engines": {
     "node": ">=8"
   },
   "bugs": {
-    "url": "https://github.com/nothingisdead/npm-kraken-api/issues",
-    "email": "rbmyr8@gmail.com"
+    "url": "https://github.com/gbili/kraken-com-api-node-ts/issues",
+    "email": "mail@guillermo.at"
   },
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "@types/dotenv": "8.2.0",
+    "@types/got": "9.6.11",
+    "@types/qs": "6.9.5",
+    "@types/node": "14.14.22"
+  }
 }
